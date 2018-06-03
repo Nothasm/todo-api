@@ -2,3 +2,4 @@ node_modules/
 playground/
 package-lock.json
 test.js
+.vscode
