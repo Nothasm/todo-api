@@ -1,18 +1,18 @@
 const expect = require('expect');
 const request = require('supertest');
 
-const {app} = require('./../server');
-const {Todo} = require('./../models/todo');
-const {ObjectId} = require('mongodb');
+const { app } = require('./../server');
+const { Todo } = require('./../models/todo');
+const { ObjectId } = require('mongodb');
 
 var todos = [
     {
         _id: new ObjectId,
-        text: "Primeiro todo"
+        text: 'Primeiro todo'
     },
     {
         _id: new ObjectId,
-        text: "Segundo todo"
+        text: 'Segundo todo'
     }
 ];
 
