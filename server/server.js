@@ -1,3 +1,5 @@
+require('./config/config');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const { mongoose, ObjectId } = require('./db/mongoose');
@@ -7,7 +9,7 @@ var { Todo } = require('./models/todo');
 var { User } = require('./models/user');
 
 var app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.use(bodyParser.json());
 
@@ -90,6 +92,15 @@ app.patch('/todos/:id', (req, res) => {
         res.status(404).send();
     }
 });
+
+app.post('/users', (req, res) => {
+    var body = _.pick(req.body, ['email', 'password']);
+    var user = new User(body);
+    user.save().then((user) => {
+        res.send(user);
+    }).catch((e) => res.status(400).send(e));
+
+})
 
 app.listen(PORT, () => {
     console.log(`Server up on port ${PORT}`);
