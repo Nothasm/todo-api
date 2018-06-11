@@ -23,13 +23,15 @@ const users = [{
 var todos = [
     {
         _id: new ObjectId,
-        text: 'Primeiro todo'
+        text: 'Primeiro todo',
+        _creator: userOneId
     },
     {
         _id: new ObjectId,
         text: 'Segundo todo',
         completed: true,
-        completedAt: 1500
+        completedAt: 1500,
+        _creator: userTwoId
     }
 ];
 
